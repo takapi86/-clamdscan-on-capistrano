@@ -16,6 +16,5 @@ RUN apt-get -y install git
 RUN apt install -y clamav clamav-daemon
 RUN cd /var/lib/clamav/ && wget "https://database.clamav.net/main.cvd"
 RUN freshclam
-RUN service clamav-daemon start
 
-CMD ["/usr/sbin/sshd", "-D"]
+CMD service clamav-daemon start && /usr/sbin/sshd -D
